@@ -84,60 +84,9 @@ namespace FindingBrokenImages
             }
         }
 
-        [TestMethod]
-
-        public void temp()
-        {
-            string str = "https://s3.ap-south-1.amazonaws.com/assets-cricket.yahoo.sportz.io/prod/waf-images/13/56/d9/16-9/388-218/1f0b9b19da418f1c4fb9e90ed19e23d6.jpeg";
-                                                                                                                    
-           string str1= str.Substring(105);
-
-            Console.WriteLine(str1);
-        }
+       
 
 
-
-        [TestMethod]
-
-        public void atk()
-
-        {
-
-            IWebDriver driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl("https://www.indiansuperleague.com/");
-            driver.Manage().Window.Maximize();
-
-            var Imageslist = new List<ImagesList>();
-
-            int count = (int)(driver.FindElements(By.TagName("span"))).Count;
-
-            Console.WriteLine(count);
-            var allImages = driver.FindElements(By.TagName("span"));
-            foreach (var img in allImages)
-            {
-                var imgSrc = img.Text;
-                Imageslist.Add(new ImagesList { IMAGE = imgSrc });
-                NUnit.Framework.TestContext.Out.WriteLine($"IMAGE:{imgSrc}");
-            }
-
-
-            foreach (var i in Imageslist)
-            {
-
-                string link = i.IMAGE.ToString();
-
-                Console.WriteLine(link);
-                if (i.Equals("ATK"))
-                {
-
-                    Console.WriteLine("ATK");
-                }
-          
-
-            }
-
-        }
 
     }
 }
